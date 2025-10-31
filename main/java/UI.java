@@ -1,9 +1,5 @@
-import javax.swing.*;
-import java.awt.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,6 +17,7 @@ public class UI {
 
 
         } catch (Exception e) {
+            System.out.println("Cannot connect to PostgreSQL: " + e.getMessage());
         }
     }
 
@@ -36,6 +33,7 @@ public class UI {
             System.out.println("2) Add a Student");
             System.out.println("3) Update Student Email");
             System.out.println("4) Delete a Student");
+            System.out.println("Press 'q' to quit");
 
             userInput = scan.nextLine();
 

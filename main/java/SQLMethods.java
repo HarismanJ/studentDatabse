@@ -17,6 +17,7 @@ public class SQLMethods {
                         + ", Last Name: " + last_name + ", Email: " + email + ", Enrollment Date: " + enrollment_date);
             }
         } catch (Exception e) {
+            System.out.println("Error retrieving students: " + e.getMessage());
         }
     }
 
@@ -27,7 +28,7 @@ public class SQLMethods {
             st.executeUpdate("INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES ('" +
                     first_name + "', '" + last_name + "', '" + email + "', '" + enrollment_date + "');");
         } catch (Exception e) {
-            System.out.println(e.toString());
+            System.out.println("Error adding student: " + e.getMessage());
         }
     }
 
@@ -35,7 +36,9 @@ public class SQLMethods {
         try{
             Statement st = c.createStatement();
             return st.executeUpdate("UPDATE students SET email = '" + newEmail + "' WHERE student_id=" + student_id + ";");
-        }catch (Exception e){}
+        }catch (Exception e){
+            System.out.println("Error updating student email: " + e.getMessage());
+        }
         return -1;
     }
 
@@ -44,6 +47,7 @@ public class SQLMethods {
             Statement st = c.createStatement();
             return st.executeUpdate("DELETE FROM students WHERE student_id=" + student_id + ";");
         } catch (Exception e) {
+            System.out.println("Error deleting student: " + e.getMessage());
         }
         return -1;
     }
@@ -69,6 +73,8 @@ public class SQLMethods {
                     "('Jane', 'Smith', 'jane.smith@example.com', '2023-09-01'),"+
                     "('Jim', 'Beam', 'jim.beam@example.com', '2023-09-02');");
 
-        }catch (Exception e){System.out.println(e.toString());}
+        }catch (Exception e){
+            System.out.println("Error creating or initializing the students table: " + e.getMessage());
+        }
     }
 }
