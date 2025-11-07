@@ -88,10 +88,10 @@ public class UI {
                                 System.out.println("Last day 30");
                             }
                             else {
-                                if (m == 2 && (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {
-                                    lastDay = 28;
-                                } else {
+                                if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {
                                     lastDay = 29;
+                                } else {
+                                    lastDay = 28;
                                 }
                             }
                             if (d>=1 && d<=lastDay) {
